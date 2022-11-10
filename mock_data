@@ -1,0 +1,47 @@
+CREATE SCHEMA mock_data;
+--creating mock version of data I worked with
+
+--each dataset is collected from different departments of the company
+
+--Table of contract details of customer:
+	CREATE TABLE contract_dataset (
+		customer_id INT,
+		contract_months VARCHAR(255),
+		contract_start_date VARCHAR(255),
+		contract_end_date VARCHAR(255),
+		PRIMARY KEY (customer_id)
+	);
+
+	--Table of information on product:
+	CREATE TABLE product_dataset (
+		prod_type INT,
+		prod_class VARCHAR(255),
+		prod_listed VARCHAR(255),
+		PRIMARY KEY (prod_type)
+	);
+
+	--Table of order details of customers:
+	CREATE TABLE collection_dataset (
+		customer_id INT REFERENCES contract_dataset (customer_id),
+		prod_type INT REFERENCES product_dataset (prod_type),
+		total_quota VARCHAR(255),
+		total_fulfilled_order VARCHAR(255),
+		total_requested_order VARCHAR(255),
+		total_inprogress_order VARCHAR(255)
+	);
+
+
+--creating 5 example customer
+INSERT INTO mock_data.contract_dataset (customer_id, contract_months, contract_start_date, contract_end_date) VALUES (1, 6, '01.03.2022', '01.10.2022');
+INSERT INTO mock_data.contract_dataset (customer_id, contract_months, contract_start_date, contract_end_date) VALUES (2, 3, '01.01.2022', '01.04.2022');
+INSERT INTO mock_data.contract_dataset (customer_id, contract_months, contract_start_date, contract_end_date) VALUES (3, 9, '01.02.2022', '01.12.2022');
+INSERT INTO mock_data.contract_dataset (customer_id, contract_months, contract_start_date, contract_end_date) VALUES (4, 12, '01.05.2022', '01.05.2023');
+INSERT INTO mock_data.contract_dataset (customer_id, contract_months, contract_start_date, contract_end_date) VALUES (5, 3, '01.03.2022', '01.07.2022');
+
+
+--creating 3 example product
+INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUES (1, 'Class1', 'True');
+INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUES (2, 'Class2', 'False');
+INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUES (3, 'Class3', 'True');
+
+--creating made-up orders for collection
