@@ -1,4 +1,5 @@
 CREATE SCHEMA mock_data;
+GO
 --creating mock version of data I worked with
 
 --each dataset is collected from different departments of the company
@@ -6,9 +7,9 @@ CREATE SCHEMA mock_data;
 --Table of contract details of customer:
 	CREATE TABLE contract_dataset (
 		customer_id INT,
-		contract_months VARCHAR(255),
-		contract_start_date VARCHAR(255),
-		contract_end_date VARCHAR(255),
+		contract_months INT,
+		contract_start_date DATE,
+		contract_end_date DATE,
 		PRIMARY KEY (customer_id)
 	);
 
@@ -24,10 +25,10 @@ CREATE SCHEMA mock_data;
 	CREATE TABLE collection_dataset (
 		customer_id INT REFERENCES contract_dataset (customer_id),
 		prod_type INT REFERENCES product_dataset (prod_type),
-		total_quota VARCHAR(255),
-		total_fulfilled_order VARCHAR(255),
-		total_requested_order VARCHAR(255),
-		total_inprogress_order VARCHAR(255)
+		total_quota INT,
+		total_fulfilled_order INT,
+		total_requested_order INT,
+		total_inprogress_order INT
 	);
 
 
@@ -44,4 +45,14 @@ INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUE
 INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUES (2, 'Class2', 'False');
 INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUES (3, 'Class3', 'True');
 
---creating made-up orders for collection
+--creating 5 made-up orders for collection
+INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (1, 2, 2500, 1000, 1500, 500)
+INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (2, 3, 1000, 500, 800, 0)
+INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (3, 1, 800, 500, 650 ,100)
+INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (4, 2, 2500, 2000, 3000, 250)
+INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (5, 1, 1000, 900, 900, 0)
+
+
+--addign inputs collected from account owners
+ALTER TABLE contract_dataset
+ADD comments_collected VARCHAR(255)
