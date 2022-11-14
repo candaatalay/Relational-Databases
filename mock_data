@@ -23,12 +23,14 @@ GO
 
 	--Table of order details of customers:
 	CREATE TABLE collection_dataset (
+		collection_id INT,
 		customer_id INT REFERENCES contract_dataset (customer_id),
 		prod_type INT REFERENCES product_dataset (prod_type),
 		total_quota INT,
 		total_fulfilled_order INT,
 		total_requested_order INT,
-		total_inprogress_order INT
+		total_inprogress_order INT,
+		PRIMARY KEY (collection_id)
 	);
 
 
@@ -46,11 +48,11 @@ INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUE
 INSERT INTO mock_data.product_dataset (prod_type, prod_class, prod_listed) VALUES (3, 'Class3', 'True');
 
 --creating 5 made-up orders for collection
-INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (1, 2, 2500, 1000, 1500, 500)
-INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (2, 3, 1000, 500, 800, 0)
-INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (3, 1, 800, 500, 650 ,100)
-INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (4, 2, 2500, 2000, 3000, 250)
-INSERT INTO mock_data.collection_dataset (customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (5, 1, 1000, 900, 900, 0)
+INSERT INTO mock_data.collection_dataset (collection_id, customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (1694, 1, 2, 2500, 1000, 1500, 500)
+INSERT INTO mock_data.collection_dataset (collection_id, customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (6514, 2, 3, 1000, 500, 800, 0)
+INSERT INTO mock_data.collection_dataset (collection_id, customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (1546, 3, 1, 800, 500, 650 ,100)
+INSERT INTO mock_data.collection_dataset (collection_id, customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (2425, 4, 2, 2500, 2000, 3000, 250)
+INSERT INTO mock_data.collection_dataset (collection_id, customer_id, prod_type, total_quota, total_fulfilled_order, total_requested_order, total_inprogress_order) VALUES (5465, 5, 1, 1000, 900, 900, 0)
 
 
 --addign inputs collected from account owners
