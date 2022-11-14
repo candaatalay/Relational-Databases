@@ -6,7 +6,7 @@
 - Project Description
 - Installation
 - Entity-relationship model
-- Object-relational Mapper
+- Security and Backup
 - End Product
 - Further Study
 
@@ -21,7 +21,7 @@ Here, I created a mock version of similar data with 5 made up customers and 3 pr
 
 ## Installation
 
-mock_database is built completally on PostgreSQL 15.1, for download instrutions [visit this link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
+mock_database is built completely on PostgreSQL 15.1, for download instrutions [visit this link](https://www.enterprisedb.com/downloads/postgres-postgresql-downloads).
 
 ## Functinalities
 
@@ -31,7 +31,10 @@ In the final dashboard a functionality for account managers to add comments rega
 ## Entity-relationship model 
 ![alt text](https://github.com/candaatalay/Relational-Databases/blob/main/Database%20ER%20diagram.jpeg)
 
-## Object-relational Mapper
+## Security and Backup
+
+Since the data contains sensative information, security is necessary. This is achieved by restricted access to original data and not allowing tempering with the original data, only with the backup. 
+For backup, table is exported with [Google Cloud Console](https://cloud.google.com/cloud-console) by BigQuery API. Alongside that snapshots of table is also stored in BigQuery.
 
 ## End Product
 
