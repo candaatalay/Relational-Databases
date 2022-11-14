@@ -37,5 +37,8 @@ Since the data contains sensative information, security is necessary. This is ac
 For backup, table is exported with [Google Cloud Console](https://cloud.google.com/cloud-console) by BigQuery API. Alongside that snapshots of table is also stored in BigQuery.
 
 ## End Product
+Once the data normalization is done final data is presented in Looker Studio with a drop down list and corresponding consumption information, total quota and graph of usages over months appears.
+[alt text](https://github.com/candaatalay/Relational-Databases/blob/main/end_product.PNG)
+
 
 ## Further Work
