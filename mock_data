@@ -10,6 +10,7 @@ GO
 		contract_months INT,
 		contract_start_date DATE,
 		contract_end_date DATE,
+		prod_type INT REFERENCES product_dataset (prod_type)
 		PRIMARY KEY (customer_id)
 	);
 
