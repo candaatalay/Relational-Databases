@@ -24,6 +24,7 @@ Here, I created a mock version of similar data with 5 made up customers and 3 pr
 ## Functinalities
 
 ## Entity-relationship model 
+![alt text](https://github.com/candaatalay/Relational-Databases/blob/main/Database%20ER%20diagram.jpeg)
 
 ## Object-relational Mapper
 
